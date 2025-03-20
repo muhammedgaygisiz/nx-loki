@@ -1,3 +1,13 @@
+## 0.0.3 (2025-03-20)
+
+### 🚀 Features
+
+- initial impl of init generator ([7a91cd9](https://github.com/muhammedgaygisiz/nx-loki/commit/7a91cd9))
+
+### ❤️ Thank You
+
+- e529454
+
 ## <small>0.0.2 (2025-03-18)</small>
 
 - chore: setup tag message ([e035e36](https://github.com/muhammedgaygisiz/nx-loki/commit/e035e36))
