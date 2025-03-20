@@ -50,5 +50,6 @@
   },
   "nx": {
     "includedScripts": []
-  }
+  },
+  "generators": "./generators.json"
 }
