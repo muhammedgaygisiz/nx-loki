@@ -1,3 +1,7 @@
+## 0.0.5 (2025-03-20)
+
+This was a version bump only, there were no code changes.
+
 ## <small>0.0.3 (2025-03-20)</small>
 
 - chore: move files to src ([1e8579f](https://github.com/muhammedgaygisiz/nx-loki/commit/1e8579f))
