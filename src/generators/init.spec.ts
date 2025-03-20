@@ -6,7 +6,7 @@ import { InitGeneratorSchema } from "./schema";
 
 describe("init generator", () => {
   let tree: Tree;
-  const options: InitGeneratorSchema = { name: "test" };
+  const options: InitGeneratorSchema = {};
 
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();

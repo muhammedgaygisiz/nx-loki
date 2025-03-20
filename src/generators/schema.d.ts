@@ -1,3 +1,2 @@
-export interface InitGeneratorSchema {
-  name: string;
-}
+/* eslint-disable */
+export interface InitGeneratorSchema {}
