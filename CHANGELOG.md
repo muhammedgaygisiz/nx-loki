@@ -1,3 +1,7 @@
+## 0.0.6 (2025-03-21)
+
+This was a version bump only, there were no code changes.
+
 ## <small>0.0.7 (2025-03-21)</small>
 
 ## <small>0.0.6 (2025-03-20)</small>
