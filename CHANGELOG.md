@@ -1,3 +1,13 @@
+## 0.0.7 (2025-03-21)
+
+### 🩹 Fixes
+
+- fix location of generators entry in package.json ([9428f4b](https://github.com/muhammedgaygisiz/nx-loki/commit/9428f4b))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.6 (2025-03-21)
 
 This was a version bump only, there were no code changes.
