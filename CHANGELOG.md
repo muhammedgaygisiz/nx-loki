@@ -1,3 +1,13 @@
+## 0.0.8 (2025-03-21)
+
+### 🩹 Fixes
+
+- fix url in generators.json ([a4be6c1](https://github.com/muhammedgaygisiz/nx-loki/commit/a4be6c1))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.7 (2025-03-21)
 
 ### 🩹 Fixes
