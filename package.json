@@ -50,6 +50,5 @@
   },
   "nx": {
     "includedScripts": []
-  },
-  "generators": "./nx-loki/src/generators/generators.json"
+  }
 }
