@@ -1,3 +1,11 @@
+## <small>0.0.7 (2025-03-21)</small>
+
+## <small>0.0.6 (2025-03-20)</small>
+
+- chore: bump to version 0.0.4 :rocket: ([401e9ce](https://github.com/muhammedgaygisiz/nx-loki/commit/401e9ce))
+- chore: bump to version 0.0.6 :rocket: ([b7f1583](https://github.com/muhammedgaygisiz/nx-loki/commit/b7f1583))
+- chore: fix path to generators ([df43d0e](https://github.com/muhammedgaygisiz/nx-loki/commit/df43d0e))
+
 ## <small>0.0.6 (2025-03-20)</small>
 
 - chore: bump to version 0.0.4 :rocket: ([401e9ce](https://github.com/muhammedgaygisiz/nx-loki/commit/401e9ce))
