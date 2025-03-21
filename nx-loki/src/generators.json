@@ -1,8 +1,8 @@
 {
   "generators": {
     "init": {
-      "factory": "./src/generators/init",
-      "schema": "./src/generators/schema.json",
+      "factory": "./generators/init",
+      "schema": "./generators/schema.json",
       "description": "init generator"
     }
   }
