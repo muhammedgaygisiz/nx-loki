@@ -1,9 +1,14 @@
 {
   "generators": {
     "init": {
-      "factory": "./generators/init",
-      "schema": "./generators/schema.json",
+      "factory": "./generators/init/init",
+      "schema": "./generators/init/schema.json",
       "description": "init generator"
+    },
+    "configuration": {
+      "factory": "./src/generators/configuration/configuration",
+      "schema": "./src/generators/configuration/schema.json",
+      "description": "configuration generator"
     }
   }
 }

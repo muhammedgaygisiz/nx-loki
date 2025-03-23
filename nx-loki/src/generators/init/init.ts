@@ -8,8 +8,7 @@ import {
   updateNxJson,
 } from "@nx/devkit";
 import { InitGeneratorSchema } from "./schema";
-import { readPackageJson } from "nx/src/project-graph/file-utils";
-import { LOKI_VERSION } from "../utils/versions";
+import { LOKI_VERSION } from "../../utils/versions";
 
 const isPlugin = (plugin: string | ExpandedPluginConfiguration<unknown>) =>
   typeof plugin === "string"

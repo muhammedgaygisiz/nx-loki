@@ -1,5 +1,17 @@
 # nx-loki
+
 nx Plugin for oblador/loki: 👁 Visual Regression Testing for Storybook
+
+# Add plugin to your repository
+
+`nx add nx-loki`
+
+- Modifies your package.json and add loki as dev dependency
+- Adds nx-loki to the list of your plugins in nx.json
+
+`nx g nx-loki:configuration <project-name>`
+
+- Adds
 
 # NxLoki
 
@@ -32,6 +44,7 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
 
 To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
+
 ```sh
 npx nx add @nx/react
 ```
@@ -92,6 +105,7 @@ Learn more:
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 And join the Nx community:
+
 - [Discord](https://go.nx.dev/community)
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
