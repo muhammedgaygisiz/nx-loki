@@ -1,3 +1,14 @@
+## 0.0.9 (2025-03-23)
+
+### 🚀 Features
+
+- remove prompt in schema ([a3a41f0](https://github.com/muhammedgaygisiz/nx-loki/commit/a3a41f0))
+- add loki as dev dependency ([6d8c8ce](https://github.com/muhammedgaygisiz/nx-loki/commit/6d8c8ce))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.8 (2025-03-21)
 
 ### 🩹 Fixes
