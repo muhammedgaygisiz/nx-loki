@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "init": {
+      "factory": "./generators/init",
+      "schema": "./generators/schema.json",
+      "description": "init generator"
+    }
+  }
+}
