@@ -1,3 +1,13 @@
+## 0.0.10 (2025-03-29)
+
+### 🚀 Features
+
+- start configuration generator ([613b016](https://github.com/muhammedgaygisiz/nx-loki/commit/613b016))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.9 (2025-03-23)
 
 ### 🚀 Features
