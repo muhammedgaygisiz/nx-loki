@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`init generator should run successfully 1`] = `
+[
+  {
+    "options": {},
+    "plugin": "nx-loki",
+  },
+]
+`;
+
+exports[`init generator should run successfully 2`] = `
+{
+  "dependencies": {},
+  "devDependencies": {
+    "loki": "0.35.1",
+  },
+  "name": "@proj/source",
+}
+`;

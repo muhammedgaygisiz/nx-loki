@@ -1,5 +1,5 @@
 import { createTreeWithEmptyWorkspace } from "@nx/devkit/testing";
-import { Tree, readProjectConfiguration } from "@nx/devkit";
+import { readNxJson, Tree } from "@nx/devkit";
 
 import { initGenerator } from "./init";
 import { InitGeneratorSchema } from "./schema";
@@ -14,7 +14,12 @@ describe("init generator", () => {
 
   it("should run successfully", async () => {
     await initGenerator(tree, options);
-    const config = readProjectConfiguration(tree, "test");
-    expect(config).toBeDefined();
+
+    const nxJson = readNxJson(tree);
+    expect(nxJson.plugins).toMatchSnapshot();
+
+    const modifiedPackageJson = JSON.parse(tree.read("package.json", "utf-8"));
+
+    expect(modifiedPackageJson).toMatchSnapshot();
   });
 });

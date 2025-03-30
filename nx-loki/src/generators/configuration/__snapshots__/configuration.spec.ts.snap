@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`configuration generator should run successfully 1`] = `
+"module.exports = {
+  configurations: {
+    'chrome.laptop': {
+      target: 'chrome.docker',
+      width: 1366,
+      height: 768,
+      deviceScaleFactor: 1,
+      mobile: false,
+    },
+    'chrome.iphone7': {
+      target: 'chrome.docker',
+      preset: 'iPhone 7',
+    },
+  },
+};
+"
+`;
+
+exports[`configuration generator should run successfully 2`] = `
+{
+  "description": "Dummy package.json since loki itself expects its.",
+  "name": "test-loki",
+}
+`;

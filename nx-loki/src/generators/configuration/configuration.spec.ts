@@ -14,7 +14,19 @@ describe("configuration generator", () => {
 
   it("should run successfully", async () => {
     await configurationGenerator(tree, options);
-    const config = readProjectConfiguration(tree, "test");
-    expect(config).toBeDefined();
+
+    const LOKI_CONFIG_FILE = `apps/${options.name}/loki.config.js`;
+    expect(tree.exists(LOKI_CONFIG_FILE)).toBeTruthy();
+
+    const PROJECT_PACKAGE_JSON = `apps/${options.name}/package.json`;
+    expect(tree.exists(PROJECT_PACKAGE_JSON)).toBeTruthy();
+
+    const lokiConfigFile = tree.read(LOKI_CONFIG_FILE, "utf-8");
+    expect(lokiConfigFile).toMatchSnapshot();
+
+    const packageJsonFile = JSON.parse(
+      tree.read(PROJECT_PACKAGE_JSON, "utf-8")
+    );
+    expect(packageJsonFile).toMatchSnapshot();
   });
 });
