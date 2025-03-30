@@ -8,7 +8,10 @@ export async function configurationGenerator(
 ) {
   const projectRoot = `apps/${options.name}`;
 
-  generateFiles(tree, path.join(__dirname, "files"), projectRoot, { tmpl: "" });
+  generateFiles(tree, path.join(__dirname, "files"), projectRoot, {
+    tmpl: "",
+    name: options.name,
+  });
 
   await formatFiles(tree);
 }
