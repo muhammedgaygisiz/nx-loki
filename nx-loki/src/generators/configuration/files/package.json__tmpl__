@@ -1,0 +1,4 @@
+{
+    "name": "<%= name %>-loki",
+    "description": "Dummy package.json since loki itself expects its."
+}

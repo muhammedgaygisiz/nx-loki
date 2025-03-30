@@ -1,6 +1,5 @@
 import {
   addDependenciesToPackageJson,
-  ExpandedPluginConfiguration,
   formatFiles,
   NxJsonConfiguration,
   readNxJson,
@@ -9,11 +8,7 @@ import {
 } from "@nx/devkit";
 import { InitGeneratorSchema } from "./schema";
 import { LOKI_VERSION } from "../../utils/versions";
-
-const isPlugin = (plugin: string | ExpandedPluginConfiguration<unknown>) =>
-  typeof plugin === "string"
-    ? plugin === "nx-loki"
-    : plugin.plugin === "nx-loki";
+import { isLokiPlugin } from "../../utils/plugins.utils";
 
 const nxLokiPlugin = {
   plugin: "nx-loki",
@@ -51,7 +46,7 @@ const addDependency = async (tree: Tree) => {
 
 export async function initGenerator(tree: Tree, options: InitGeneratorSchema) {
   const nxJson = readNxJson(tree) || {};
-  const hasPlugin = nxJson.plugins?.some((plugin) => isPlugin(plugin));
+  const hasPlugin = nxJson.plugins?.some((plugin) => isLokiPlugin(plugin));
 
   if (!hasPlugin) {
     await updateNxJsonWithPlugin(nxJson, tree);
