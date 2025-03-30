@@ -16,11 +16,7 @@ interface LokiPluginOptions {}
 
 const lokiConfigGlob = "**/loki.config.js";
 
-const getBuildStorybookOutput = (projectRoot: string) => {
-  console.log(projectRoot);
-
-  return `./storybook-static`;
-};
+const getBuildStorybookOutput = (projectRoot: string) => `./storybook-static`;
 
 const createNodesInternal = (
   configFilePath: string,
@@ -40,20 +36,6 @@ const createNodesInternal = (
   const resolvedConfigFile = resolve(context.workspaceRoot, configFilePath);
 
   const lokiConfigContent = readFileSync(resolvedConfigFile).toString();
-
-  const initTarget: TargetConfiguration = {
-    command: `loki init`,
-    options: {
-      cwd: projectRoot,
-    },
-    cache: false,
-    inputs: [
-      "{projectRoot}/loki.config.js",
-      {
-        externalDependencies: ["loki"],
-      },
-    ],
-  };
 
   const buildStorybookOutput = getBuildStorybookOutput(projectRoot);
   const updateTarget: TargetConfiguration = {
@@ -87,7 +69,7 @@ const createNodesInternal = (
   };
 
   const testTarget: TargetConfiguration = {
-    command: `loki test`,
+    command: `loki test --reactUri file:${buildStorybookOutput}`,
     options: {
       cwd: projectRoot,
     },
@@ -105,9 +87,8 @@ const createNodesInternal = (
     projects: {
       [projectRoot]: {
         targets: {
-          ["init-loki"]: initTarget,
-          ["test-loki"]: testTarget,
           ["update-loki"]: updateTarget,
+          ["test-loki"]: testTarget,
           ["approve-loki"]: approveTarget,
         },
       },
