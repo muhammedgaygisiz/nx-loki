@@ -1,3 +1,13 @@
+## 0.0.20 (2025-03-30)
+
+### 🚀 Features
+
+- add inferred task for loki and necessary package.json ([1f5fe4b](https://github.com/muhammedgaygisiz/nx-loki/commit/1f5fe4b))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.19 (2025-03-30)
 
 This was a version bump only, there were no code changes.
