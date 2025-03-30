@@ -1,3 +1,13 @@
+## 0.0.16 (2025-03-30)
+
+### 🚀 Features
+
+- initial setup of nx-loki configuration ([635cc54](https://github.com/muhammedgaygisiz/nx-loki/commit/635cc54))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.15 (2025-03-30)
 
 This was a version bump only, there were no code changes.
