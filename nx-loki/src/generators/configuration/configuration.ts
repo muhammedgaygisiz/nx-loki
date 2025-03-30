@@ -1,9 +1,4 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  Tree,
-} from "@nx/devkit";
+import { formatFiles, generateFiles, Tree } from "@nx/devkit";
 import * as path from "path";
 import { ConfigurationGeneratorSchema } from "./schema";
 
@@ -11,14 +6,10 @@ export async function configurationGenerator(
   tree: Tree,
   options: ConfigurationGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: "library",
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
-  });
-  generateFiles(tree, path.join(__dirname, "files"), projectRoot, options);
+  const projectRoot = `apps/${options.name}`;
+
+  generateFiles(tree, path.join(__dirname, "files"), projectRoot, { tmpl: "" });
+
   await formatFiles(tree);
 }
 
