@@ -1,6 +1,9 @@
-## <small>0.0.2 (2025-03-18)</small>
+## 0.0.24 (2025-03-30)
 
-- chore: setup tag message ([e035e36](https://github.com/muhammedgaygisiz/nx-loki/commit/e035e36))
+### 🚀 Features
+
+- run loki update ([6b9b64e](https://github.com/muhammedgaygisiz/nx-loki/commit/6b9b64e))
+- impl initiale update test and approve targets for loki ([6a24721](https://github.com/muhammedgaygisiz/nx-loki/commit/6a24721))
 
 ## <small>0.0.1 (2025-03-18)</small>
 

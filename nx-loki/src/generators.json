@@ -1,0 +1,16 @@
+{
+  "generators": {
+    "init": {
+      "factory": "./generators/init/init",
+      "schema": "./generators/init/schema.json",
+      "description": "Add loki to the workspace",
+      "hidden": true
+    },
+    "configuration": {
+      "factory": "./generators/configuration/configuration",
+      "schema": "./generators/configuration/schema.json",
+      "description": "Add loki configuration to an application",
+      "hidden": false
+    }
+  }
+}
