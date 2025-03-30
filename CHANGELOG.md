@@ -1,3 +1,14 @@
+## 0.0.24 (2025-03-30)
+
+### 🚀 Features
+
+- run loki update ([6b9b64e](https://github.com/muhammedgaygisiz/nx-loki/commit/6b9b64e))
+- impl initiale update test and approve targets for loki ([6a24721](https://github.com/muhammedgaygisiz/nx-loki/commit/6a24721))
+
+### ❤️ Thank You
+
+- e529454
+
 ## 0.0.23 (2025-03-30)
 
 This was a version bump only, there were no code changes.
