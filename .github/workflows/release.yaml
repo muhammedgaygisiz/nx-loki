@@ -101,3 +101,5 @@ jobs:
 
       - name: Push tag
         run: git push --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
