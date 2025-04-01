@@ -6,8 +6,7 @@
     "commitizen": "commitizen",
     "commit": "cz",
     "prepare": "husky",
-    "version": "conventional-changelog -i CHANGELOG.md -s -r 2 && git add CHANGELOG.md",
-    "nx": "nx"
+    "version": "conventional-changelog -i CHANGELOG.md -s -r 2 && git add CHANGELOG.md"
   },
   "private": true,
   "dependencies": {

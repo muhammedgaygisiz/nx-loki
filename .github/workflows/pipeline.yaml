@@ -48,4 +48,4 @@ jobs:
         run: npm run nx -- run-many --target=test --all
 
       - name: Build
-        run: npm run nx --run-many --target=build --all
+        run: npm run nx -- run-many --target=build --all
