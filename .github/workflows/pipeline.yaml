@@ -29,6 +29,9 @@ jobs:
       - setup
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Prepare job
         uses: ./.github/actions/job-setup
 
@@ -41,6 +44,9 @@ jobs:
       - setup
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Prepare job
         uses: ./.github/actions/job-setup
 
@@ -54,6 +60,9 @@ jobs:
       - tests
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Prepare job
         uses: ./.github/actions/job-setup
 

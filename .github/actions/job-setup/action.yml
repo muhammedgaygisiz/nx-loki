@@ -1,11 +1,8 @@
-name: "Checkout and restore dependencies"
-description: "Checkouts repo and restores dependencies"
+name: "Restore dependencies"
+description: "Restores dependencies"
 runs:
   using: "composite"
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
     - name: Restore cache
       uses: actions/cache/restore@v4
       with:
