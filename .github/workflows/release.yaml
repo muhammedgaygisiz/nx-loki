@@ -101,10 +101,14 @@ jobs:
             npm run nx -- release --verbose ${{ github.event.inputs.release_version }}
           fi
 
-      - name: Push changes
-        run: git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          head: release
+          title: "Release version $VERSION"
+          body: "Automated PR to merge release version $VERSION"
 
       - name: Push tag
         run: git push --tags
