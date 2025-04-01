@@ -6,6 +6,10 @@ on:
       release_version:
         description: "Enter the release version (e.g. patch, minor ...)"
         required: true
+      first_release:
+        description: "Is this the first release? (true/false)"
+        required: true
+        default: "false"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
@@ -88,7 +92,12 @@ jobs:
           git config --global user.name "GitHub Actions"
 
       - name: Run release
-        run: npm run nx -- release --verbose ${{ github.event.inputs.release_version }}
+        run: |
+          if [ "${{ github.event.inputs.first_release }}" == "true" ]; then
+            npm run nx -- release --first-release --verbose ${{ github.event.inputs.release_version }}
+          else
+            npm run nx -- release --verbose ${{ github.event.inputs.release_version }}
+          fi
 
       - name: Push tag
         run: git push --tags
