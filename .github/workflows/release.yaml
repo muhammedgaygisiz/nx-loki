@@ -108,9 +108,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: main
-          title: "Release version $VERSION"
-          body: "Automated PR to merge release version $VERSION"
+        run: |
+          RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
+          gh pr create --base main --head $RELEASE_BRANCH --title "chore(release): bump to version $RELEASE_BRANCH :rocket:"
