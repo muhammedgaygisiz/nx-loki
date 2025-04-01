@@ -1,6 +1,6 @@
 {
   "name": "@nx-loki/source",
-  "version": "0.0.7",
+  "version": "0.0.31",
   "license": "MIT",
   "scripts": {
     "commitizen": "commitizen",
