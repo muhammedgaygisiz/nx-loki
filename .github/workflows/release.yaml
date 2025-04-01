@@ -1,4 +1,6 @@
 name: nx-loki Release
+permissions:
+  contents: write
 
 on:
   workflow_dispatch:
