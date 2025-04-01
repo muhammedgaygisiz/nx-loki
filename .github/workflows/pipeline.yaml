@@ -2,9 +2,9 @@ name: nx-loki CI
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
   pull_request:
-    branches: [develop]
+    branches: [ main ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
