@@ -82,5 +82,10 @@ jobs:
       - name: Prepare job
         uses: ./.github/actions/job-setup
 
+      - name: Set up Git user
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+
       - name: Run release
         run: npm run nx -- release --first-release ${{ github.event.inputs.release_version }}
