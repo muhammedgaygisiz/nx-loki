@@ -1,4 +1,4 @@
-name: nx-loki CI
+name: nx-loki Release
 
 on:
   workflow_dispatch:
