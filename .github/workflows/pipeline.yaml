@@ -29,14 +29,8 @@ jobs:
       - setup
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Restore cache
-        uses: actions/cache/restore@v4
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
 
       - name: Run lint
         run: npm run nx -- run-many --target=lint --all
@@ -47,14 +41,8 @@ jobs:
       - setup
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Restore cache
-        uses: actions/cache/restore@v4
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
 
       - name: Run tests
         run: npm run nx -- run-many --target=test --all
@@ -66,14 +54,8 @@ jobs:
       - tests
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Restore cache
-        uses: actions/cache/restore@v4
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
 
       - name: Run build
         run: npm run nx -- run-many --target=build --all
