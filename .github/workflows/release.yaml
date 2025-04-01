@@ -1,0 +1,86 @@
+name: nx-loki CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: "Enter the release version (e.g. patch, minor ...)"
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+
+env:
+  CI: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup action
+        uses: ./.github/actions/setup
+
+  lint:
+    runs-on: ubuntu-latest
+    needs:
+      - setup
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
+
+      - name: Run lint
+        run: npm run nx -- run-many --target=lint --all
+
+  tests:
+    runs-on: ubuntu-latest
+    needs:
+      - setup
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
+
+      - name: Run tests
+        run: npm run nx -- run-many --target=test --all
+
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+      - tests
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
+
+      - name: Run build
+        run: npm run nx -- run-many --target=build --all
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
+
+      - name: Run release
+        run: npm run nx -- release --dry-run ${{ github.event.inputs.release_version }}
