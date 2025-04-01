@@ -88,4 +88,4 @@ jobs:
           git config --global user.name "GitHub Actions"
 
       - name: Run release
-        run: npm run nx -- release --first-release ${{ github.event.inputs.release_version }}
+        run: npm run nx -- release ${{ github.event.inputs.release_version }}
