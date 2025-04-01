@@ -45,7 +45,7 @@
   },
   "release": {
     "changelog": {
-      "automatic": true
+      "automaticFromRef": true
     },
     "releaseTagPattern": "v{version}",
     "version": {
