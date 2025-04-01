@@ -101,6 +101,11 @@ jobs:
             npm run nx -- release --verbose ${{ github.event.inputs.release_version }}
           fi
 
+      - name: Push changes
+        run: git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Push tag
         run: git push --tags
         env:
