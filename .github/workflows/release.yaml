@@ -94,9 +94,9 @@ jobs:
       - name: Run release
         run: |
           if [ "${{ github.event.inputs.first_release }}" == "true" ]; then
-            npm run nx -- release --first-release --verbose ${{ github.event.inputs.release_version }}
+            npm run nx -- release --skip-publish --first-release --verbose ${{ github.event.inputs.release_version }}
           else
-            npm run nx -- release --verbose ${{ github.event.inputs.release_version }}
+            npm run nx -- release --skip-publish --verbose ${{ github.event.inputs.release_version }}
           fi
 
       - name: Push tag
@@ -116,6 +116,6 @@ jobs:
 
       - name: Publish to npm
         if: success() # Ensures this step runs only if all previous steps succeed
-        run: npm run nx -- release-publish
+        run: npm run nx -- nx-release-publish nx-loki
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
