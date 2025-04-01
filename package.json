@@ -9,7 +9,6 @@
     "version": "conventional-changelog -i CHANGELOG.md -s -r 2 && git add CHANGELOG.md",
     "nx": "nx"
   },
-  "private": true,
   "dependencies": {
     "@nx/devkit": "20.6.1"
   },
