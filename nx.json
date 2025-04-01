@@ -44,6 +44,10 @@
     }
   },
   "release": {
+    "changelog": {
+      "automatic": true
+    },
+    "releaseTagPattern": "v${version}",
     "version": {
       "preVersionCommand": "npx nx run-many -t build"
     }
