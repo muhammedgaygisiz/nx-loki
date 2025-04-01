@@ -111,4 +111,4 @@ jobs:
       - name: Create Pull Request
         run: |
           RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
-          gh pr create --base main --head $RELEASE_BRANCH --title "chore(release): bump to version $RELEASE_BRANCH :rocket:"
+          gh pr create --base main --head $RELEASE_BRANCH --title "chore(release): bump to version $RELEASE_BRANCH :rocket:" --body ""
