@@ -85,13 +85,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Prepare job
-        uses: ./.github/actions/job-setup
-
       - name: Set up Git user
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
+
+      - name: Create release branch
+        run: |
+          # Fetch latest main branch
+          git checkout main
+          git pull origin main
+          
+          RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
+          git checkout -b $RELEASE_BRANCH
+          
+          git push origin $RELEASE_BRANCH
+
+      - name: Prepare job
+        uses: ./.github/actions/job-setup
 
       - name: Run release
         run: |
@@ -101,6 +112,16 @@ jobs:
             npm run nx -- release --verbose ${{ github.event.inputs.release_version }}
           fi
 
+      - name: Push tag
+        run: git push --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push changes
+        run: git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -109,8 +130,3 @@ jobs:
           head: release
           title: "Release version $VERSION"
           body: "Automated PR to merge release version $VERSION"
-
-      - name: Push tag
-        run: git push --tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
