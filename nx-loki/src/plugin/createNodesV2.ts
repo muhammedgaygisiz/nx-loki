@@ -1,10 +1,10 @@
-import { readFileSync } from "fs";
 import {
   CreateNodesContextV2,
   createNodesFromFiles,
   CreateNodesV2,
-} from "nx/src/project-graph/plugins";
-import { dirname, resolve } from "path";
+  readJsonFile,
+} from "@nx/devkit";
+import { dirname } from "path";
 import { TargetConfiguration } from "nx/src/config/workspace-json-project-json";
 import {
   isStorybookPlugin,
@@ -16,8 +16,48 @@ import { logger } from "@nx/devkit";
 interface LokiPluginOptions {}
 
 const lokiConfigGlob = "**/loki.config.js";
+const DEFAULT_STORYBOOK_OUTPUT = "./storybook-static";
 
-const getBuildStorybookOutput = (projectRoot: string) => `./storybook-static`;
+const getBuildStorybookOutputPath = (
+  storybookConfigFile: any
+): string | null => {
+  // Access the build-storybook target options
+  const buildStorybookTarget =
+    storybookConfigFile?.targets?.["build-storybook"];
+
+  if (buildStorybookTarget && buildStorybookTarget.options?.outputDir) {
+    return buildStorybookTarget.options.outputDir;
+  }
+
+  // Return null if outputDir is not defined
+  return null;
+};
+
+const getProjectsStorybookConfig = (filePath): any | null => {
+  const parts = filePath.split("/"); // Split the path by '/'
+  if (parts.length >= 2) {
+    return readJsonFile(`${parts[0]}/${parts[1]}/project.json`);
+  }
+
+  return null; // Return null if the path is invalid
+};
+
+const getBuildStorybookOutput = (configFilePath: string) => {
+  try {
+    const storyBookConfigFile = getProjectsStorybookConfig(configFilePath);
+
+    const outputDir = getBuildStorybookOutputPath(storyBookConfigFile);
+
+    if (outputDir) {
+      return `../../${outputDir}`;
+    }
+  } catch (error) {
+    console.error("Error reading project.json:", error);
+  }
+
+  console.log("Using default build output path for Storybook");
+  return DEFAULT_STORYBOOK_OUTPUT;
+};
 
 const createNodesInternal = (
   configFilePath: string,
@@ -37,11 +77,8 @@ const createNodesInternal = (
 
   const projectRoot = dirname(configFilePath);
 
-  const resolvedConfigFile = resolve(context.workspaceRoot, configFilePath);
+  const buildStorybookOutput = getBuildStorybookOutput(configFilePath);
 
-  const lokiConfigContent = readFileSync(resolvedConfigFile).toString();
-
-  const buildStorybookOutput = getBuildStorybookOutput(projectRoot);
   const updateTarget: TargetConfiguration = {
     command: `loki update --reactUri file:${buildStorybookOutput}`,
     options: {
