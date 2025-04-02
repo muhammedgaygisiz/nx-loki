@@ -1,3 +1,13 @@
+## 1.0.2 (2025-04-02)
+
+### 🚀 Features
+
+- log on missing storybook plugin ([#52](https://github.com/muhammedgaygisiz/nx-loki/pull/52))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 1.0.1 (2025-04-02)
 
 ### 🩹 Fixes
