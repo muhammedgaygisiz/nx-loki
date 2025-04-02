@@ -1,8 +1,8 @@
 import { PluginConfiguration } from "@nx/devkit";
 
-export const pleaseInstallNxStorybookPlugin = (): string => `
-    Storybook is not installed for the application.
-`;
+export const pleaseInstallNxStorybookPlugin = (): { message: string } => ({
+  message: `Storybook Plugin is not installed for the application.`,
+});
 
 export const isLokiPlugin = (plugin: PluginConfiguration) =>
   typeof plugin === "string"
