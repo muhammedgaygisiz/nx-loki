@@ -1,3 +1,13 @@
+## 1.0.1 (2025-04-02)
+
+### 🩹 Fixes
+
+- fix no error message on no storybook plugin installed ([#50](https://github.com/muhammedgaygisiz/nx-loki/pull/50))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 # 1.0.0 (2025-04-02)
 
 This was a version bump only, there were no code changes.
