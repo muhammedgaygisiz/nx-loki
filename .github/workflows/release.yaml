@@ -86,33 +86,21 @@ jobs:
           RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
           git checkout -b $RELEASE_BRANCH
           
-          git push -u origin $RELEASE_BRANCH
-
       - name: Prepare job
         uses: ./.github/actions/job-setup
 
       - name: Run release
         run: |
           if [ "${{ github.event.inputs.first_release }}" == "true" ]; then
-            npm run nx -- release --skip-publish --first-release --verbose ${{ github.event.inputs.release_version }}
+            npm run nx -- release --skip-publish --first-release ${{ github.event.inputs.release_version }}
           else
-            npm run nx -- release --skip-publish --verbose ${{ github.event.inputs.release_version }}
+            npm run nx -- release --skip-publish ${{ github.event.inputs.release_version }}
           fi
 
       - name: Push tag
         run: git push --tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Push changes
-        run: git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Pull Request
-        run: |
-          RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
-          gh pr create --base main --head $RELEASE_BRANCH --title "chore(release): bump to version $RELEASE_BRANCH :rocket:" --body ""
 
       - name: Publish to npm
         if: success() # Ensures this step runs only if all previous steps succeed
@@ -121,3 +109,13 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push release branch
+        run: git push -u origin $RELEASE_BRANCH
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        run: |
+          RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
+          gh pr create --base main --head $RELEASE_BRANCH --title "chore(release): bump to version $RELEASE_BRANCH :rocket:" --body ""
