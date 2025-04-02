@@ -28,7 +28,7 @@ const createNodesInternal = (
   );
 
   if (!hasStorybookPlugin) {
-    throw pleaseInstallNxStorybookPlugin;
+    throw pleaseInstallNxStorybookPlugin();
   }
 
   const projectRoot = dirname(configFilePath);
