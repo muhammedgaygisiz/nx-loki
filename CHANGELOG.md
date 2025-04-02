@@ -1,3 +1,15 @@
+## 0.0.41 (2025-04-02)
+
+### 🚀 Features
+
+- create init, configuration generator - interferred tasks - and loki targets ([2eda147](https://github.com/muhammedgaygisiz/nx-loki/commit/2eda147))
+- setup pipeline I ([43286b3](https://github.com/muhammedgaygisiz/nx-loki/commit/43286b3))
+- setup ci cd II ([1328887](https://github.com/muhammedgaygisiz/nx-loki/commit/1328887))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 0.0.39 (2025-04-02)
 
 This was a version bump only, there were no code changes.
