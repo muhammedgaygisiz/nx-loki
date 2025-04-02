@@ -10,6 +10,7 @@ import {
   isStorybookPlugin,
   pleaseInstallNxStorybookPlugin,
 } from "../utils/plugins.utils";
+import { logger } from "@nx/devkit";
 
 /* eslint-disable-next-line */
 interface LokiPluginOptions {}
@@ -28,7 +29,7 @@ const createNodesInternal = (
   );
 
   if (!hasStorybookPlugin) {
-    console.error(
+    logger.error(
       "Nx Storybook Plugin is not installed. Please install it to use the Loki plugin."
     );
     throw pleaseInstallNxStorybookPlugin();
