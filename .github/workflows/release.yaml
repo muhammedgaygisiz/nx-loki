@@ -71,6 +71,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
 
       - name: Set up Git user
         run: |
@@ -85,6 +87,7 @@ jobs:
           
           RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
           git checkout -b $RELEASE_BRANCH
+          git status # Verify the branch creation
           
       - name: Prepare job
         uses: ./.github/actions/job-setup
@@ -111,7 +114,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push release branch
-        run: git push -u origin $RELEASE_BRANCH
+        run: |
+          RELEASE_BRANCH="release-${{ github.event.inputs.release_version }}"
+          git push -u origin $RELEASE_BRANCH
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
