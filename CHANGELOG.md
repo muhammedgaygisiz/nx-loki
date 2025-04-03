@@ -1,3 +1,13 @@
+## 1.1.0 (2025-04-02)
+
+### 🚀 Features
+
+- use storybook output dir for loki ([#54](https://github.com/muhammedgaygisiz/nx-loki/pull/54))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 1.0.2 (2025-04-02)
 
 ### 🚀 Features
