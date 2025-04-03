@@ -1,3 +1,13 @@
+## 1.2.0 (2025-04-03)
+
+### 🚀 Features
+
+- switch to looks-same and retries param ([#56](https://github.com/muhammedgaygisiz/nx-loki/pull/56))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 1.1.0 (2025-04-02)
 
 ### 🚀 Features
