@@ -1,3 +1,13 @@
+## 1.2.2 (2025-04-04)
+
+### 🩹 Fixes
+
+- fix multiline in GitHub actions ([#60](https://github.com/muhammedgaygisiz/nx-loki/pull/60))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 1.2.1 (2025-04-04)
 
 ### 🩹 Fixes
