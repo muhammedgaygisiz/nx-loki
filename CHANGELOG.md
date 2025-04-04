@@ -1,3 +1,13 @@
+## 1.2.1 (2025-04-04)
+
+### 🩹 Fixes
+
+- fix multiline command ([#58](https://github.com/muhammedgaygisiz/nx-loki/pull/58))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 1.2.0 (2025-04-03)
 
 ### 🚀 Features
