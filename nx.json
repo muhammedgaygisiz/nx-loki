@@ -50,6 +50,9 @@
     "releaseTagPattern": "v{version}",
     "version": {
       "preVersionCommand": "npx nx run-many -t build"
+    },
+    "git": {
+      "commitMessage": "chore(release): bump to version {version} :rocket:"
     }
   }
 }
