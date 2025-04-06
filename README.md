@@ -1,112 +1,69 @@
 # nx-loki
 
-nx Plugin for oblador/loki: 👁 Visual Regression Testing for Storybook
+`nx-loki` is an Nx plugin for integrating [Loki](https://github.com/oblador/loki), a visual regression testing tool for Storybook, into your Nx workspace. This plugin helps you set up and run visual regression tests to ensure that your UI components remain consistent over time.
 
-# Add plugin to your repository
+## Installation
 
-`nx add nx-loki`
-
-- Modifies your package.json and add loki as dev dependency
-- Adds nx-loki to the list of your plugins in nx.json
-
-`nx g nx-loki:configuration <project-name>`
-
-- Adds
-
-# NxLoki
-
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
-
-Run `npx nx graph` to visually explore what got created. Now, let's get you up to speed!
-
-## Run tasks
-
-To run tasks with Nx use:
+To add the `nx-loki` plugin to your Nx workspace, run the following command:
 
 ```sh
-npx nx <target> <project-name>
+nx add nx-loki
 ```
 
-For example:
+This command will modify your `package.json` to add Loki as a development dependency and include `nx-loki` in the list of plugins in your `nx.json`.
+
+## Configuration
+
+To configure `nx-loki` for a specific project in your workspace, use the following command:
 
 ```sh
-npx nx build myproject
+nx g nx-loki:configuration <project-name>
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+This command will add the necessary configuration files and settings to your project to enable Loki for visual regression testing.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Usage
 
-## Add new projects
+### Running Visual Regression Tests
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
+To run visual regression tests with Loki, use the following command:
 
 ```sh
-npx nx add @nx/react
+npx nx run <project-name>:loki
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+This command will execute the visual regression tests for the specified project.
+
+### Updating Baseline Images
+
+If you need to update the baseline images for your visual regression tests, use the following command:
 
 ```sh
-# Generate an app
-npx nx g @nx/react:app demo
-
-# Generate a library
-npx nx g @nx/react:lib some-lib
+npx nx run <project-name>:loki-update
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+This command will update the baseline images with the current state of your UI components.
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Approving Changes
 
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
+To approve changes detected by Loki, use the following command:
 
 ```sh
-npx nx connect
+npx nx run <project-name>:loki-approve
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+This command will approve the changes and update the baseline images accordingly.
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Additional Resources
 
-### Step 2
+For more information about Loki and its configuration options, refer to the [Loki documentation](https://github.com/oblador/loki).
 
-Use the following command to configure a CI workflow for your workspace:
+For more information about Nx and its capabilities, refer to the [Nx documentation](https://nx.dev).
 
-```sh
-npx nx g ci-workflow
-```
+## Useful Links
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Nx Documentation](https://nx.dev)
+- [Loki Documentation](https://github.com/oblador/loki)
+- [Nx Plugin Registry](https://nx.dev/plugin-registry)
+- [Nx Community](https://go.nx.dev/community)
+- [List of Chromium Command Line Switches](https://peter.sh/experiments/chromium-command-line-switches/#)
