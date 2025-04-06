@@ -66,3 +66,4 @@ For more information about Nx and its capabilities, refer to the [Nx documentati
 - [Loki Documentation](https://github.com/oblador/loki)
 - [Nx Plugin Registry](https://nx.dev/plugin-registry)
 - [Nx Community](https://go.nx.dev/community)
+- [List of Chromium Command Line Switches](https://peter.sh/experiments/chromium-command-line-switches/#)

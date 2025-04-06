@@ -7,6 +7,7 @@ import {
 } from "../utils/plugins.utils";
 import { LokiPluginOptions } from "./loki-plugin-options";
 import { buildTestParams } from "./build-test-params";
+import { buildReactUriParser } from "./build-react-uri-param";
 
 export const createNodesInternal = (
   configFilePath: string,
@@ -28,8 +29,10 @@ export const createNodesInternal = (
 
   const buildStorybookOutput = getBuildStorybookOutput(configFilePath);
 
+  const reactUriParams = buildReactUriParser(buildStorybookOutput);
+
   const updateTarget: TargetConfiguration = {
-    command: `loki update --reactUri file:${buildStorybookOutput}`,
+    command: `loki update ${reactUriParams}`,
     options: {
       cwd: projectRoot,
     },
@@ -42,9 +45,8 @@ export const createNodesInternal = (
     ],
     dependsOn: ["build-storybook"],
   };
-
   const approveTarget: TargetConfiguration = {
-    command: `loki approve --reactUri file:${buildStorybookOutput}`,
+    command: `loki approve ${reactUriParams}`,
     options: {
       cwd: projectRoot,
     },
@@ -58,9 +60,9 @@ export const createNodesInternal = (
     dependsOn: ["build-storybook"],
   };
 
-  const testParams = buildTestParams(options);
+  const testParams = buildTestParams(options, buildStorybookOutput);
   const testTarget: TargetConfiguration = {
-    command: `loki test --reactUri file:${buildStorybookOutput} ${testParams}`,
+    command: `loki test ${testParams}`,
     options: {
       cwd: projectRoot,
     },
