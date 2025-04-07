@@ -1,3 +1,13 @@
+## 1.2.3 (2025-04-06)
+
+### 🚀 Features
+
+- cli params via options ([b59b238](https://github.com/muhammedgaygisiz/nx-loki/commit/b59b238))
+
+### ❤️ Thank You
+
+- Muhammed Gaygisiz @muhammedgaygisiz
+
 ## 1.2.2 (2025-04-04)
 
 ### 🩹 Fixes
