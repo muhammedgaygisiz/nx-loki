@@ -105,6 +105,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Copy README
+        run: cp README.md dist/nx-loki/README.md
+
       - name: Publish to npm
         if: success() # Ensures this step runs only if all previous steps succeed
         run: npm run nx -- nx-release-publish nx-loki
